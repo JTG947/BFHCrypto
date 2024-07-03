@@ -1,10 +1,10 @@
 import { View, Text } from '../../components/Themed';
 import React, { FunctionComponent } from 'react';
-interface HomeScreenProps {
+interface PortfolioScreenProps {
     
 }
  
-const HomeScreen: FunctionComponent<HomeScreenProps> = () => {
+const PortfolioScreen: FunctionComponent<PortfolioScreenProps> = () => {
     return (
         <View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
             <Text>HomeScreen Component</Text>
@@ -12,4 +12,4 @@ const HomeScreen: FunctionComponent<HomeScreenProps> = () => {
      );
 }
  
-export default HomeScreen;
+export default PortfolioScreen;

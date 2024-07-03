@@ -1,5 +1,7 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { Entypo } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { Link, Tabs } from 'expo-router';
 import { Pressable } from 'react-native';
 
@@ -21,7 +23,7 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors[colorScheme ?? 'dark'].tint,
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
@@ -29,8 +31,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Home',
+          tabBarIcon: ({ color }) => <Entypo name="home" size={24} color="black" />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -48,12 +50,34 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="portfolioscreen"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Portfolio',
+          tabBarIcon: ({ color }) => <Entypo name="pie-chart" size={24} color="black" />,
         }}
       />
+      <Tabs.Screen
+        name="marketscreen"
+        options={{
+          title: 'Market',
+          tabBarIcon: ({ color }) => <FontAwesome name="line-chart" size={24} color="black" />,
+        }}
+      />
+      <Tabs.Screen
+        name="rankingscreen"
+        options={{
+          title: 'Ranking',
+          tabBarIcon: ({ color }) => <MaterialIcons name="leaderboard" size={24} color="black" />,
+        }}
+      />
+      <Tabs.Screen
+        name="profilescreen"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color }) => <FontAwesome name="user" size={24} color="black" />,
+        }}
+      />
+      
     </Tabs>
   );
 }
