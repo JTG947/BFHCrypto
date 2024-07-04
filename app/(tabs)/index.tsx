@@ -2,7 +2,7 @@ import { View, Text } from '../../components/Themed';
 import { StyleSheet } from 'react-native';
 import React, { FunctionComponent } from 'react';
 import { Image } from 'react-native';
-import { green } from 'react-native-reanimated/lib/typescript/reanimated2/Colors';
+
 
 interface HomeScreenProps {
     
