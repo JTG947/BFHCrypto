@@ -38,16 +38,22 @@ const portfolioCoins = [{
 const PortfolioScreen: FunctionComponent<PortfolioScreenProps> = () => {
     return (
         <View style= {styles.root}>
-            <Image style= {styles.image}source={require('../../assets/images/Saly-10.png')} />
-            <View>
-                <Text style= {styles.label}>PORTFOLIO BALANCE  </Text>
-                <Text style= {styles.balance}> $69,420 </Text>
-            
-            </View>
             <FlatList
                 style={{width: '100%'}}
                 data={portfolioCoins} 
                 renderItem={({item}) => <PortfolioCoin portfolioCoin={item} />}
+                showsVerticalScrollIndicator={false}
+                ListHeaderComponentStyle = {{alignItems: 'center'}}
+                ListHeaderComponent={() => (
+                    <>
+                        <Image style= {styles.image}source={require('../../assets/images/Saly-10.png')} />
+                        <View>
+                            <Text style= {styles.label}>PORTFOLIO BALANCE  </Text>
+                            <Text style= {styles.balance}> $69,420 </Text>
+            
+                        </View>
+                    </>
+                )}
             />    
         </View>
      );
