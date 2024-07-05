@@ -5,6 +5,7 @@ import { StyleSheet } from "react-native";
 
 export interface PortfolioCoinProps  {
     portfolioCoin : {
+        id: number,
         image: string,
         name: string,
         symbol: string,
@@ -17,6 +18,7 @@ export interface PortfolioCoinProps  {
 const PortfolioCoin: FunctionComponent<PortfolioCoinProps> = (props) => {
     const {
         portfolioCoin : {
+            id,
             image,
             name,
             symbol,

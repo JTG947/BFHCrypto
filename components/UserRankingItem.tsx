@@ -3,50 +3,43 @@ import {View, Text, Image} from 'react-native'
 import { StyleSheet } from "react-native";
 
 
-export interface MarketCoinProps  {
-    marketCoin : {
+export interface UserRankingItemProps  {
+    user : {
         id: number,
         image: string,
         name: string,
-        symbol: string,
-        valueChange24H: number,
-        valueUSD: number,
+        random: number,
     }
-    
+    place: number,
 }
  
-const MarketCoin: FunctionComponent<MarketCoinProps> = (props) => {
+const UserRankingItem: FunctionComponent<UserRankingItemProps> = (props) => {
     const {
-        marketCoin : {
+        user : {
             id,
             image,
             name,
-            symbol,
-            valueChange24H,
-            valueUSD,
-        }
-
+            random,
+        },
+        place
     } = props;
     return ( 
         <View style={styles.root}>
             <View style={styles.left}>
+                <Text style = {styles.place}>{place}</Text>
                 <Image style={styles.image} source= {{ uri: image}}/>
                 <View>
-                    <Text style={styles.name}>{name}</Text>
-                    <Text style={styles.symbol}>{symbol}</Text>
+                    <Text style={styles.name}>{name}</Text>                
                 </View>
             </View>
             <View style={{alignItems: 'flex-end'}}>
-                <Text style={styles.value}>${valueUSD}</Text>
-                <Text style={{color: valueChange24H > 0 ? '#398f0a' : '#f10000'}}>
-                    {valueChange24H > 0 && '+'} {valueChange24H}
-                </Text>
+                <Text style={styles.value}>${random}</Text>
             </View>
         </View>
      );
 }
  
-export default MarketCoin;
+export default UserRankingItem;
 
 const styles = StyleSheet.create({
     root:{
@@ -76,5 +69,9 @@ const styles = StyleSheet.create({
     left: {
         flexDirection: 'row',
         alignItems: 'center',
-    }
+    },
+    place: {
+        fontSize: 18, 
+        width: 30,
+    },
   });
